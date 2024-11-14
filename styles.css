@@ -8,6 +8,8 @@ body {
     height: 100vh;
     margin: 0;
     flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box; /* Ensure padding is included in the height */
   }
   
   /* Sudoku Board */
@@ -18,8 +20,10 @@ body {
     gap: 5px;
     margin: 20px;
     transition: transform 0.5s ease;
+    justify-content: center;
   }
   
+  /* Input cells */
   input {
     width: 50px;
     height: 50px;
@@ -102,4 +106,62 @@ body {
     animation: solve-animation 0.5s ease-out forwards;
   }
   
+  /* Responsive Layout for Mobile */
+  @media (max-width: 768px) {
+    #sudoku-board {
+      grid-template-columns: repeat(9, 40px);
+      grid-template-rows: repeat(9, 40px);
+      gap: 4px;
+    }
+  
+    input {
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+    }
+  
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+      width: 100%;  /* Make button full width for easier tap */
+      max-width: 300px;  /* Ensure buttons don't get too wide */
+      margin-top: 20px;
+    }
+  
+    h1 {
+      font-size: 1.5em;
+    }
+  }
+  
+  /* Small screen layout (mobile landscape and below) */
+  @media (max-width: 480px) {
+    #sudoku-board {
+      grid-template-columns: repeat(9, 35px);
+      grid-template-rows: repeat(9, 35px);
+      gap: 3px;
+    }
+  
+    input {
+      width: 35px;
+      height: 35px;
+      font-size: 16px;
+    }
+  
+    button {
+      padding: 6px 12px;
+      font-size: 12px;
+      width: 100%;  /* Button full width for mobile */
+      max-width: 300px;  /* Prevent too large buttons */
+      margin-top: 20px;
+    }
+  
+    h1 {
+      font-size: 1.2em;
+    }
+  
+    /* Reduce padding for smaller screens */
+    body {
+      padding: 10px;
+    }
+  }
   
